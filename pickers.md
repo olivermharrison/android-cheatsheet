@@ -1,57 +1,29 @@
 # Pickers
 
-## Date Picker
-
 ```kotlin
-class DatePicker: DialogFragment(), DatePickerDialog.OnDateSetListener  {
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        super.onCreateDialog(savedInstanceState)
+val cal = Calendar.getInstance()
+val year = cal.get(Calendar.YEAR)
+val month = cal.get(Calendar.MONTH)
+val day = cal.get(Calendar.DAY_OF_MONTH)
+val hour = cal.get(Calendar.HOUR_OF_DAY)
+val minute = cal.get(Calendar.MINUTE)
 
-        val c = Calendar.getInstance()
-        val year = c.get(Calendar.YEAR)
-        val month = c.get(Calendar.MONTH)
-        val day = c.get(Calendar.DAY_OF_MONTH)
 
-        return DatePickerDialog(this.activity, this, year, month, day)
+dateTextButton.setOnClickListener {
+
+    val dateSetListener = DatePickerDialog.OnDateSetListener { picker, year, month, day ->
+        println("${year} - ${month} - ${day}")
     }
 
-    override fun onDateSet(picker: DatePicker?, year: Int, month: Int, day: Int) {
-
-    }
+    DatePickerDialog(this, dateSetListener,year,month, day).show()
 }
-```
 
-Usage:
+timeTextButton.setOnClickListener {
 
-```kotlin
-val datePicker = DatePicker()
-datePicker.show(fragmentManager, "datePicker")
-```
-
-## Time Picker
-
-```kotlin
-class TimePicker: DialogFragment(), TimePickerDialog.OnTimeSetListener {
-
-    override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
-        super.onCreateDialog(savedInstanceState)
-
-        val c = Calendar.getInstance()
-        val hour = c.get(Calendar.HOUR_OF_DAY)
-        val minute = c.get(Calendar.MINUTE)
-
-        return TimePickerDialog(this.activity, this, hour, minute, true)
+    val timeSetListener = TimePickerDialog.OnTimeSetListener { picker, hour, minute ->
+        println("${hour}:${minute}")
     }
 
-    override fun onTimeSet(picker: TimePicker?, hour: Int, minute: Int) {
-
-    }
+    TimePickerDialog(this, timeSetListener, hour, minute, true).show()
 }
-```
-
-Usage: 
-
-```kotlin
-val timePicker = TimePicker()
-timePicker.show(fragmentManager, "timePicker")
 ```
