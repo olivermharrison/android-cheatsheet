@@ -11,6 +11,7 @@ module.exports = {
             ['/scheduling', 'Scheduling'],
             ['/tabs', 'Tabbed Navigation'],
             ['/authentication', 'Authentication'],
+            ['/pickers', 'Pickers'],
         ]
     }
 }
