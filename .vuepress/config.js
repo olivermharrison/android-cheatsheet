@@ -12,6 +12,7 @@ module.exports = {
             ['/tabs', 'Tabbed Navigation'],
             ['/authentication', 'Authentication'],
             ['/pickers', 'Pickers'],
+            ['/room', 'Room Database'],
         ]
     }
 }
