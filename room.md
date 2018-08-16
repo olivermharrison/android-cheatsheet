@@ -58,10 +58,32 @@ Note: this should be a singleton!
 ```kotlin
 val items = db.itemDao().getAllItems()
 
-// Update a recycler view
+// Access off the main thread
+AsyncTask.execute({
+    val items = db.itemDao().getAllItems()
+})
+```
+
+### Observing Changes
+
+Add the dependencies to build.grade
+```kotlin
+def lifecycle_version = "1.1.1"
+implementation "android.arch.lifecycle:livedata:$lifecycle_version"
+```
+
+Use LiveData in the ItemDao
+```kotlin
+import android.arch.lifecycle.LiveData
+
+fun getAllItems(): LiveData<List<Items>>
+
+```
+
+Usage
+```kotlin
 items.observe(this, Observer<List<Item>> {
-    this.activity.runOnUiThread(Runnable {
-        itemList.adapter = ItemAdapter(items.value!!)
-    })
+    // Update a recycler view
+    itemList.adapter = ItemAdapter(items.value!!)
 })
 ```
