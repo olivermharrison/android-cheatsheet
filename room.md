@@ -26,6 +26,9 @@ data class Item(
 @Dao
 interface ItemDao {
 
+    @Query("select * from items where id = :id limit 1")
+    fun getItem(id: Int): Item
+
     @Query("select * from items")
     fun getAllItems(): List<Item>
 
