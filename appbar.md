@@ -1,12 +1,14 @@
 # The App Bar
 
-Firtsly, use a base theme with no action bar
+## Steps
+
+### 1. Use a theme with no action bar
 ```xml
 <!-- styles.xml -->
 <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
 ```
 
-Now create the element in the main activity layout
+### 2. Create the layout
 ```xml
 <android.support.design.widget.AppBarLayout
     android:gravity="center">
@@ -19,7 +21,11 @@ Now create the element in the main activity layout
 </android.support.design.widget.AppBarLayout>
 ```
 
-Set the app bar in the main activity
+### 3. Set the app bar in the activity
 ```kotlin
 setSupportActionBar(findViewById(R.id.my_toolbar))
 ```
+
+## References
+
+<https://developer.android.com/training/appbar/setting-up>
