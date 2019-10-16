@@ -1,14 +1,15 @@
 # Lists
 
-## 4 steps to success
+## Steps
 
-### 1) Create a RecyclerView
+### 1. Create a RecyclerView
+This is the element that contains the list items.
 ```xml
 <android.support.v7.widget.RecyclerView
     android:id="@+id/itemList" />
 ```
 
-### 2) Create the list item layout
+### 2. Create the list item layout
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
@@ -19,7 +20,7 @@
 </android.support.v7.widget.CardView>
 ```
 
-### 3) Create the item adapter
+### 3. Create the item adapter
 
 ```kotlin
 class ItemAdapter(private val dataset: List<Item>) : RecyclerView.Adapter<ItemAdapter.ViewHolder>() {
@@ -40,7 +41,7 @@ class ItemAdapter(private val dataset: List<Item>) : RecyclerView.Adapter<ItemAd
 }
 ```
 
-### 4) Finally, initialize the list
+### 4. Finally, initialize the list
 ```kotlin
 val items = []
 itemList.layoutManager = LinearLayoutManager(this.context)
@@ -50,3 +51,9 @@ itemList.adapter = ItemAdapter(items)
 ## Adding event listeners
 
 TODO
+
+## References
+
+<https://developer.android.com/guide/topics/ui/layout/recyclerview>
+<https://developer.android.com/reference/android/support/v7/widget/RecyclerView>
+<https://www.androidhive.info/2016/01/android-working-with-recycler-view/>
