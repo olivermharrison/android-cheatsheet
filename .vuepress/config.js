@@ -1,4 +1,5 @@
 module.exports = {
+    base: "/android-cheatsheet/",
     title: 'Android/Kotlin Cheat Sheet',
     description: 'A collection of code snippets for common features in Android apps',
     themeConfig: {
