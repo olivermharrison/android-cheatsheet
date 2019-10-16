@@ -1,0 +1,17 @@
+{
+  "name": "android-cheatsheet",
+  "version": "1.0.0",
+  "description": "A collection of code snippets for common features in Android apps",
+  "scripts": {
+    "serve": "vuepress dev",
+    "build": "vuepress build",
+    "deploy": "./deploy.sh"
+  },
+  "repository": "git@github.com:olivermharrison/android-cheatsheet.git",
+  "author": "Oliver Harrison <olivermharrison@gmail.com>",
+  "license": "MIT",
+  "private": false,
+  "dependencies": {
+    "vuepress": "^1.2.0"
+  }
+}
