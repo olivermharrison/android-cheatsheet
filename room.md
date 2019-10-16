@@ -1,5 +1,12 @@
 # Room Local Database
 
+## Add dependencies to Manifest
+```
+def room_version = "1.1.1"
+implementation "android.arch.persistence.room:runtime:$room_version"
+kapt "android.arch.persistence.room:compiler:$room_version"
+```
+
 Room provides an abstraction layer over SQLite. 
 
 There are 3 major components:
@@ -34,6 +41,9 @@ interface ItemDao {
 
     @Insert(onConflict = REPLACE)
     fun insertItem(item: Item)
+
+    @Update
+    fun updateItem(item: Item)
 }
 ```
 
@@ -55,6 +65,13 @@ val db = Room.databaseBuilder(this, Database::class.java,"list-master-db").build
 ```
 
 Note: this should be a singleton!
+
+```
+companion object {
+    var db: Database? = null
+}
+
+```
 
 ## Usage
 
@@ -90,3 +107,6 @@ items.observe(this, Observer<List<Item>> {
     itemList.adapter = ItemAdapter(items.value!!)
 })
 ```
+
+# References
+https://developer.android.com/training/data-storage/room/accessing-data#convenience-insert
